@@ -29,17 +29,15 @@ class Target < ISM::Software
         super
 
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
-
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}var/lib/sddm")
     end
 
     def install
         super
 
         runGroupAddCommand(["sddm"])
+        runUserAddCommand(["-m","-d","#{Ism.settings.rootPath}var/lib/sddm","sddm","-g","video"])
         setPermissions("#{Ism.settings.rootPath}var/lib/sddm",0o755)
         setOwner("#{Ism.settings.rootPath}var/lib/sddm","sddm","sddm")
-        runUserAddCommand(["-m","-d","#{Ism.settings.rootPath}var/lib/sddm","sddm","-g","video"])
     end
 
 end
