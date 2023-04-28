@@ -1,7 +1,7 @@
 {
   "port": "DisplayManagers-Main",
   "name": "Display-Manager-Init",
-  "version": "0.19.0",
+  "version": "1.1.2",
   "architectures": ["x86_64"],
   "description": "RC init files for starting display and login managers",
   "website": "https://packages.gentoo.org/packages/gui-libs/display-manager-init",
