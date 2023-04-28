@@ -7,6 +7,7 @@ class Target < ISM::Software
         super
 
         makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/conf.d")
+        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin")
 
         displayManagerData = <<-CODE
         CHECKVT=7
