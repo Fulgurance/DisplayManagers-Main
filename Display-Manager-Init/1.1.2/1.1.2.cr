@@ -1,5 +1,8 @@
 class Target < ISM::Software
     
+    def prepare
+    end
+
     def prepareInstallation
         super
 
