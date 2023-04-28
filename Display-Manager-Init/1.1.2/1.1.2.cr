@@ -12,7 +12,7 @@ class Target < ISM::Software
         fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/conf.d/display-manager.conf",displayManagerData)
 
         prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager-setup.initd-r1","display-manager-setup")
-        prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager.initd-r5","	display-manager")
+        prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager.initd-r5","display-manager")
         copyFile("#{workDirectoryPath(false)}/startDM-r1","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/startDM")
         runChmodCommand(["+x","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/startDM"])
     end
