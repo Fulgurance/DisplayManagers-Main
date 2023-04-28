@@ -18,7 +18,7 @@ class Target < ISM::Software
         prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager-setup.initd-r1","display-manager-setup")
         prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager.initd-r5","display-manager")
         copyFile("#{workDirectoryPath(false)}/startDM-r1","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/startDM")
-        runChmodCommand(["+x","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/startDM"])
+        runChmodCommand(["+x","startDM"],"#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin")
     end
 
 end
