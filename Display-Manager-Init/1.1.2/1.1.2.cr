@@ -13,7 +13,7 @@ class Target < ISM::Software
         CHECKVT=7
         DISPLAYMANAGER=""
         CODE
-        fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/conf.d/display-manager.conf",displayManagerData)
+        fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/conf.d/display-manager",displayManagerData)
 
         prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager-setup.initd-r1","display-manager-setup")
         prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager.initd-r5","display-manager")
