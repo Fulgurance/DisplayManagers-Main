@@ -24,7 +24,7 @@
           "version": "1.5.1",
           "options": []
         }
-      ],
+      ]
     },
     {
       "name": "Systemd",
@@ -36,7 +36,7 @@
           "version": "249.0.0",
           "options": []
         }
-      ],
+      ]
     },
     {
       "name": "Elogind",
@@ -48,7 +48,7 @@
           "version": "246.10.0",
           "options": []
         }
-      ],
+      ]
     }
   ]
 }

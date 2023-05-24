@@ -5,11 +5,6 @@
   "architectures": ["x86_64"],
   "description": "RC init files for starting display and login managers",
   "website": "https://packages.gentoo.org/packages/gui-libs/display-manager-init",
-                    "https://gitweb.gentoo.org/repo/gentoo.git/plain/gui-libs/display-manager-init/files/display-manager.initd-r5",
-                    "https://gitweb.gentoo.org/repo/gentoo.git/plain/gui-libs/display-manager-init/files/startDM-r1"
-                    ],
-              "88eef4398d1b1b38823469ca39194355",
-              "871976e89a642173110cb69d40b1d2f3"],
   "installedFiles": [],
   "dependencies": [
     {
