@@ -5,9 +5,6 @@
   "architectures": ["x86_64"],
   "description": "QML based X11 and Wayland display manager",
   "website": "https://github.com/sddm/sddm",
-  "downloadLinks": ["https://github.com/sddm/sddm/releases/download/v0.19.0/sddm-0.19.0.tar.xz"],
-  "md5sums": ["66c089720bb8ce0a50a745394e5d2b91"],
-  "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [
     {
@@ -28,8 +25,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     },
     {
       "name": "Systemd",
@@ -42,8 +37,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     },
     {
       "name": "Elogind",
@@ -56,8 +49,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     }
   ]
 }
