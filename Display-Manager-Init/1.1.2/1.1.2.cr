@@ -1,8 +1,5 @@
 class Target < ISM::Software
     
-    def prepare
-    end
-
     def prepareInstallation
         super
 
@@ -15,9 +12,9 @@ class Target < ISM::Software
         CODE
         fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/conf.d/display-manager",displayManagerData)
 
-        prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager-setup.initd-r1","display-manager-setup")
-        prepareOpenrcServiceInstallation("#{workDirectoryPath(false)}/display-manager.initd-r5","display-manager")
-        copyFile("#{workDirectoryPath(false)}/startDM-r1","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/startDM")
+        prepareOpenrcServiceInstallation("#{buildDirectoryPath(false)}/Display-Manager-Setup-Init.d","display-manager-setup")
+        prepareOpenrcServiceInstallation("#{buildDirectoryPath(false)}/Display-Manager-Init.d","display-manager")
+        copyFile("#{buildDirectoryPath(false)}/startDM","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/startDM")
         runChmodCommand(["+x","startDM"],"#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin")
     end
 
