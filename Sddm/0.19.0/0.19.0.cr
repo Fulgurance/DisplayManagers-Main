@@ -11,7 +11,7 @@ class Target < ISM::Software
         runCmakeCommand([   "-DCMAKE_INSTALL_PREFIX=/usr",
                             "-DENABLE_JOURNALD=OFF",
                             "-DENABLE_PAM=#{option("Linux-Pam") ? "ON" : "OFF"}",
-                            "-DNO_SYSTEMD=#{option("Systemd") ? "ON" : "OFF"}",
+                            "-DNO_SYSTEMD=#{option("Systemd") ? "OFF" : "ON"}",
                             "-DUSE_ELOGIND=#{option("Elogind") ? "ON" : "OFF"}",
                             "-DCMAKE_BUILD_TYPE=Release",
                             "-DBUILD_TESTING=OFF",
