@@ -38,6 +38,7 @@ class Target < ISM::Software
         runUserAddCommand(["-m","-d","#{Ism.settings.rootPath}var/lib/sddm","sddm","-g","video"])
         setPermissions("#{Ism.settings.rootPath}var/lib/sddm",0o755)
         setOwner("#{Ism.settings.rootPath}var/lib/sddm","sddm","sddm")
+        makeLink("login","#{Ism.settings.rootPath}etc/pam.d/system-login",:symbolicLink)
     end
 
 end
