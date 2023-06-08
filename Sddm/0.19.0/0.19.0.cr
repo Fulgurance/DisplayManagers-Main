@@ -34,8 +34,8 @@ class Target < ISM::Software
     def install
         super
 
-        runGroupAddCommand(["sddm"])
-        runUserAddCommand(["-m","-d","#{Ism.settings.rootPath}var/lib/sddm","sddm","-g","video"])
+        runGroupAddCommand(["-r","-g","219","sddm"])
+        runUserAddCommand(["-m","-d","#{Ism.settings.rootPath}var/lib/sddm","sddm","-G","sddm,video"])
         setPermissions("#{Ism.settings.rootPath}var/lib/sddm",0o755)
         setOwner("#{Ism.settings.rootPath}var/lib/sddm","sddm","sddm")
         makeLink("login","#{Ism.settings.rootPath}etc/pam.d/system-login",:symbolicLink)
