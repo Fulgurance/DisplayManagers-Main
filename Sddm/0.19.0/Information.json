@@ -2,7 +2,9 @@
   "port": "DisplayManagers-Main",
   "name": "Sddm",
   "version": "0.19.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "QML based X11 and Wayland display manager",
   "website": "https://github.com/sddm/sddm",
   "installedFiles": [],
@@ -25,7 +27,8 @@
           "version": "1.5.1",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     },
     {
       "name": "Systemd",
@@ -37,7 +40,8 @@
           "version": "249.0.0",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     },
     {
       "name": "Elogind",
@@ -49,7 +53,8 @@
           "version": "246.10.0",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }
