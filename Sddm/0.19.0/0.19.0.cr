@@ -28,7 +28,15 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
+        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc")
+
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+
+        sddmConfData = <<-CODE
+        [General]
+        InputMethod=
+        CODE
+        fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sddm.conf",sddmConfData)
     end
 
     def install
