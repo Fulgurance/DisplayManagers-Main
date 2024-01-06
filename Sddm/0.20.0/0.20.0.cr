@@ -37,6 +37,52 @@ class Target < ISM::Software
         InputMethod=
         CODE
         fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sddm.conf",sddmConfData)
+
+        if option("Linux-Pam")
+            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d")
+
+            sddmData = <<-CODE
+            auth     requisite      pam_nologin.so
+            auth     required       pam_env.so
+
+            auth     required       pam_succeed_if.so uid >= 1000 quiet
+            auth     include        system-auth
+
+            account  include        system-account
+            password include        system-password
+
+            session  required       pam_limits.so
+            session  include        system-session
+            CODE
+            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/sddm",sddmData)
+
+            sddmAutologinData = <<-CODE
+            auth     requisite      pam_nologin.so
+            auth     required       pam_env.so
+
+            auth     required       pam_succeed_if.so uid >= 1000 quiet
+            auth     required       pam_permit.so
+
+            account  include        system-account
+
+            password required       pam_deny.so
+
+            session  required       pam_limits.so
+            session  include        system-session
+            CODE
+            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/sddm-autologin",sddmAutologinData)
+
+            sddmGreeterData = <<-CODE
+            auth     required       pam_env.so
+            auth     required       pam_permit.so
+
+            account  required       pam_permit.so
+            password required       pam_deny.so
+            session  required       pam_unix.so
+            -session optional       pam_systemd.so
+            CODE
+            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/sddm-greeter",sddmGreeterData)
+        end
     end
 
     def install
