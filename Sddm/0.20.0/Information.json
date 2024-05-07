@@ -55,6 +55,34 @@
         }
       ],
       "kernelDependencies": []
+    },
+    {
+      "name": "Breeze",
+      "description": "Enable breeze theme support",
+      "active": true,
+      "dependencies": [],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Elarun",
+      "description": "Enable elarun theme support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Maldives",
+      "description": "Enable maldives theme support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Maya",
+      "description": "Enable maya theme support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": []
     }
   ],
   "uniqueDependencies": [],

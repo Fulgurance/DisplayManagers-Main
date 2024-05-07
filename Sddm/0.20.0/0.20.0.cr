@@ -9,6 +9,9 @@ class Target < ISM::Software
         super
 
         runCmakeCommand([   "-DCMAKE_INSTALL_PREFIX=/usr",
+                            "-DRUNTIME_DIR=/run/sddm",
+                            "-DDATA_INSTALL_DIR=/usr/share/sddm",
+                            "-DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf",
                             "-DENABLE_JOURNALD=OFF",
                             "-DENABLE_PAM=#{option("Linux-Pam") ? "ON" : "OFF"}",
                             "-DNO_SYSTEMD=#{option("Systemd") ? "OFF" : "ON"}",
@@ -85,13 +88,27 @@ class Target < ISM::Software
         end
 
         makeLink("login","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/system-login",:symbolicLink)
+
+        if !option("Breeze")
+            deleteDirectoryRecursively("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/breeze")
+        end
+
+        if !option("Elarun")
+            deleteDirectoryRecursively("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/elarun")
+        end
+
+        if !option("Maldives")
+            deleteDirectoryRecursively("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/maldives")
+        end
+
+        if !option("Maya")
+            deleteDirectoryRecursively("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/maya")
+        end
     end
 
     def install
         super
 
-        runGroupAddCommand(["-r","-g","219","sddm"])
-        runUserAddCommand(["-u219","-g219","-m","-d","/var/lib/sddm","-G","video","sddm"])
         setPermissions("#{Ism.settings.rootPath}var/lib/sddm",0o755)
         setOwner("#{Ism.settings.rootPath}var/lib/sddm","sddm","sddm")
     end
