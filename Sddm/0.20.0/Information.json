@@ -2,14 +2,13 @@
   "port": "DisplayManagers-Main",
   "name": "Sddm",
   "version": "0.20.0",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "QML based X11 and Wayland display manager",
   "website": "https://github.com/sddm/sddm",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "BaseLibraries-Main",
       "name": "Qt",
       "version": ">=5.15.0",
       "options": []
@@ -23,6 +22,7 @@
       "active": true,
       "dependencies": [
         {
+          "port": "Security-Main",
           "name": "Linux-Pam",
           "version": ">=1.5.1",
           "options": []
@@ -36,6 +36,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "InitSystems-Main",
           "name": "Systemd",
           "version": ">=249.0.0",
           "options": []
@@ -49,6 +50,7 @@
       "active": true,
       "dependencies": [
         {
+          "port": "Utilities-Main",
           "name": "Elogind",
           "version": ">=246.10.0",
           "options": []
