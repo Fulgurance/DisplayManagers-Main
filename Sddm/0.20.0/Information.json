@@ -12,6 +12,18 @@
       "name": "Qt",
       "version": ">=5.15.0",
       "options": []
+    },
+    {
+      "port": "SystemGroups-Main",
+      "name": "Sddm",
+      "version": ">=0.1.0",
+      "options": []
+    },
+    {
+      "port": "SystemUsers-Main",
+      "name": "Sddm",
+      "version": ">=0.1.0",
+      "options": []
     }
   ],
   "kernelDependencies": [],
