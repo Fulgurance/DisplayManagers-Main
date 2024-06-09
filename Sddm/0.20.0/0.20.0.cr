@@ -109,8 +109,8 @@ class Target < ISM::Software
     def install
         super
 
-        setPermissions("#{Ism.settings.rootPath}var/lib/sddm",0o755)
-        setOwner("#{Ism.settings.rootPath}var/lib/sddm","sddm","sddm")
+        runChmodCommand(["0755","/var/lib/sddm"])
+        runChownCommand(["-R","sddm:sddm","/var/lib/sddm"])
     end
 
 end
