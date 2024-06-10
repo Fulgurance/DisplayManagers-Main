@@ -31,7 +31,7 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc")
+        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc")
 
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
@@ -39,10 +39,10 @@ class Target < ISM::Software
         [General]
         InputMethod=
         CODE
-        fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/sddm.conf",sddmConfData)
+        fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/sddm.conf",sddmConfData)
 
         if option("Linux-Pam")
-            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d")
+            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d")
 
             sddmData = <<-CODE
             auth     requisite      pam_nologin.so
@@ -57,7 +57,7 @@ class Target < ISM::Software
             session  required       pam_limits.so
             session  include        system-session
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/sddm",sddmData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm",sddmData)
 
             sddmAutologinData = <<-CODE
             auth     requisite      pam_nologin.so
@@ -73,7 +73,7 @@ class Target < ISM::Software
             session  required       pam_limits.so
             session  include        system-session
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/sddm-autologin",sddmAutologinData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm-autologin",sddmAutologinData)
 
             sddmGreeterData = <<-CODE
             auth     required       pam_env.so
@@ -84,25 +84,25 @@ class Target < ISM::Software
             session  required       pam_unix.so
             -session optional       pam_systemd.so
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/sddm-greeter",sddmGreeterData)
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm-greeter",sddmGreeterData)
         end
 
-        makeLink("login","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/system-login",:symbolicLink)
+        makeLink("login","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/system-login",:symbolicLink)
 
         if !option("Breeze")
-            deleteDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/breeze")
+            deleteDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/sddm/themes/breeze")
         end
 
         if !option("Elarun")
-            deleteDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/elarun")
+            deleteDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/sddm/themes/elarun")
         end
 
         if !option("Maldives")
-            deleteDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/maldives")
+            deleteDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/sddm/themes/maldives")
         end
 
         if !option("Maya")
-            deleteDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/maya")
+            deleteDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/sddm/themes/maya")
         end
     end
 
