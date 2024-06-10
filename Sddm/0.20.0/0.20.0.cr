@@ -90,19 +90,19 @@ class Target < ISM::Software
         makeLink("login","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/pam.d/system-login",:symbolicLink)
 
         if !option("Breeze")
-            deleteDirectoryRecursively("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/breeze")
+            deleteDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/breeze")
         end
 
         if !option("Elarun")
-            deleteDirectoryRecursively("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/elarun")
+            deleteDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/elarun")
         end
 
         if !option("Maldives")
-            deleteDirectoryRecursively("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/maldives")
+            deleteDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/maldives")
         end
 
         if !option("Maya")
-            deleteDirectoryRecursively("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/maya")
+            deleteDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/sddm/themes/maya")
         end
     end
 
