@@ -8,18 +8,18 @@ class Target < ISM::Software
     def configure
         super
 
-        runCmakeCommand([   "-DCMAKE_INSTALL_PREFIX=/usr",
-                            "-DRUNTIME_DIR=/run/sddm",
-                            "-DDATA_INSTALL_DIR=/usr/share/sddm",
-                            "-DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf",
-                            "-DENABLE_JOURNALD=OFF",
-                            "-DENABLE_PAM=#{option("Linux-Pam") ? "ON" : "OFF"}",
-                            "-DNO_SYSTEMD=#{option("Systemd") ? "OFF" : "ON"}",
-                            "-DUSE_ELOGIND=#{option("Elogind") ? "ON" : "OFF"}",
-                            "-DCMAKE_BUILD_TYPE=Release",
-                            "-DBUILD_TESTING=OFF",
-                            ".."],
-                            buildDirectoryPath)
+        runCmakeCommand(arguments:  "-DCMAKE_INSTALL_PREFIX=/usr                                        \
+                                    -DRUNTIME_DIR=/run/sddm                                             \
+                                    -DDATA_INSTALL_DIR=/usr/share/sddm                                  \
+                                    -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf     \
+                                    -DENABLE_JOURNALD=OFF                                               \
+                                    -DENABLE_PAM=#{option("Linux-Pam") ? "ON" : "OFF"}                  \
+                                    -DNO_SYSTEMD=#{option("Systemd") ? "OFF" : "ON"}                    \
+                                    -DUSE_ELOGIND=#{option("Elogind") ? "ON" : "OFF"}                   \
+                                    -DCMAKE_BUILD_TYPE=Release                                          \
+                                    -DBUILD_TESTING=OFF                                                 \
+                                    .."],
+                        path:       buildDirectoryPath)
     end
     
     def build
@@ -33,7 +33,8 @@ class Target < ISM::Software
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc")
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
 
         sddmConfData = <<-CODE
         [General]
@@ -87,7 +88,9 @@ class Target < ISM::Software
             fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm-greeter",sddmGreeterData)
         end
 
-        makeLink("login","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/system-login",:symbolicLink)
+        makeLink(   target: "login",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/system-login",
+                    type:   :symbolicLink)
 
         if !option("Breeze")
             deleteDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/sddm/themes/breeze")
@@ -109,8 +112,8 @@ class Target < ISM::Software
     def install
         super
 
-        runChmodCommand(["0755","/var/lib/sddm"])
-        runChownCommand(["-R","sddm:sddm","/var/lib/sddm"])
+        runChmodCommand("0755 /var/lib/sddm")
+        runChownCommand("-R sddm:sddm /var/lib/sddm")
     end
 
 end
