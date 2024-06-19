@@ -18,7 +18,7 @@ class Target < ISM::Software
                                     -DUSE_ELOGIND=#{option("Elogind") ? "ON" : "OFF"}                   \
                                     -DCMAKE_BUILD_TYPE=Release                                          \
                                     -DBUILD_TESTING=OFF                                                 \
-                                    .."],
+                                    ..",
                         path:       buildDirectoryPath)
     end
     
