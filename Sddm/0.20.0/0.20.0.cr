@@ -14,7 +14,7 @@ class Target < ISM::Software
                                     -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf     \
                                     -DENABLE_JOURNALD=OFF                                               \
                                     -DENABLE_PAM=#{option("Linux-Pam") ? "ON" : "OFF"}                  \
-                                    -DNO_SYSTEMD=#{option("Systemd") ? "OFF" : "ON"}                    \
+                                    -DNO_SYSTEMD=#{option("Systemd") ? "ON" : "OFF"}                    \
                                     -DUSE_ELOGIND=#{option("Elogind") ? "ON" : "OFF"}                   \
                                     -DCMAKE_BUILD_TYPE=Release                                          \
                                     -DBUILD_TESTING=OFF                                                 \
