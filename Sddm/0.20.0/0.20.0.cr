@@ -57,6 +57,9 @@ class Target < ISM::Software
 
             session  required       pam_limits.so
             session  include        system-session
+
+            -auth    optional       pam_kwallet5.so
+            -session optional       pam_kwallet5.so auto_start
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm",sddmData)
 
@@ -86,6 +89,12 @@ class Target < ISM::Software
             -session optional       pam_systemd.so
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm-greeter",sddmGreeterData)
+
+            greetdData = <<-CODE
+            -auth    optional       pam_kwallet5.so
+            -session optional       pam_kwallet5.so auto_start force_run
+            CODE
+            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/greetd",greetdData)
         end
 
         makeLink(   target: "login",
