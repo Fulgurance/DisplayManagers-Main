@@ -11,9 +11,8 @@ class Target < ISM::Software
         runCmakeCommand(arguments:  "-DCMAKE_INSTALL_PREFIX=/usr                                        \
                                     -DRUNTIME_DIR=/run/sddm                                             \
                                     -DDATA_INSTALL_DIR=/usr/share/sddm                                  \
-                                    -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf     \
+                                    -DDBUS_CONFIG_FILENAME=\"sddm_org.freedesktop.DisplayManager.conf\" \
                                     -DENABLE_JOURNALD=OFF                                               \
-                                    -DBUILD_WITH_QT6=OFF                                                \
                                     -DENABLE_PAM=#{option("Linux-Pam") ? "ON" : "OFF"}                  \
                                     -DNO_SYSTEMD=#{option("Systemd") ? "ON" : "OFF"}                    \
                                     -DUSE_ELOGIND=#{option("Elogind") ? "ON" : "OFF"}                   \
