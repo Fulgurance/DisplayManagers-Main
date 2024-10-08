@@ -39,6 +39,8 @@ class Target < ISM::Software
         sddmConfData = <<-CODE
         [General]
         InputMethod=
+        [Theme]
+        Current=breeze
         [X11]
         EnableHiDPI=true
         [Wayland]
