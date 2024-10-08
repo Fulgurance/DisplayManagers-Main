@@ -39,6 +39,10 @@ class Target < ISM::Software
         sddmConfData = <<-CODE
         [General]
         InputMethod=
+        [X11]
+        EnableHiDPI=true
+        [Wayland]
+        EnableHiDPI=true
         CODE
         fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/sddm.conf",sddmConfData)
 
