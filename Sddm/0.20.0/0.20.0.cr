@@ -54,7 +54,7 @@ class Target < ISM::Software
             sddmData = <<-CODE
             auth     requisite      pam_nologin.so
             auth     required       pam_env.so
-            -auth    optional       pam_kwallet5.so
+            auth    optional       pam_kwallet5.so
 
             auth     required       pam_succeed_if.so uid >= 1000 quiet
             auth     include        system-auth
@@ -64,7 +64,7 @@ class Target < ISM::Software
 
             session  required       pam_limits.so
             session  include        system-session
-            -session optional       pam_kwallet5.so auto_start
+            session optional       pam_kwallet5.so auto_start
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm",sddmData)
 
@@ -73,7 +73,7 @@ class Target < ISM::Software
             auth     required       pam_env.so
             auth     required       pam_succeed_if.so uid >= 1000 quiet
             auth     required       pam_permit.so
-            -auth       optional    pam_kwallet5.so
+            auth       optional    pam_kwallet5.so
 
             account  include        system-account
 
@@ -81,7 +81,7 @@ class Target < ISM::Software
 
             session  required       pam_limits.so
             session  include        system-session
-            -session    optional    pam_kwallet5.so auto_start
+            session    optional    pam_kwallet5.so auto_start
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm-autologin",sddmAutologinData)
 
@@ -95,12 +95,6 @@ class Target < ISM::Software
             -session optional       pam_systemd.so
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/sddm-greeter",sddmGreeterData)
-
-            greetdData = <<-CODE
-            -auth    optional       pam_kwallet5.so
-            -session optional       pam_kwallet5.so auto_start force_run
-            CODE
-            fileWriteData("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/pam.d/greetd",greetdData)
         end
 
         makeLink(   target: "login",
