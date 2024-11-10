@@ -17,6 +17,7 @@ class Target < ISM::Software
                                     -DNO_SYSTEMD=#{option("Systemd") ? "ON" : "OFF"}                    \
                                     -DUSE_ELOGIND=#{option("Elogind") ? "ON" : "OFF"}                   \
                                     -DCMAKE_BUILD_TYPE=Release                                          \
+                                    -DBUILD_WITH_QT6=ON                                                 \
                                     -DBUILD_TESTING=OFF                                                 \
                                     ..",
                         path:       buildDirectoryPath)
