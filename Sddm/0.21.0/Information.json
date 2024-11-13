@@ -24,6 +24,12 @@
       "name": "Sddm",
       "version": ">=0.1.0",
       "options": []
+    },
+    {
+      "port": "XorgBase-Main",
+      "name": "Xorg-Server",
+      "version": ">=21.1.14",
+      "options": []
     }
   ],
   "kernelDependencies": [],
