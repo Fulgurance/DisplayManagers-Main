@@ -40,7 +40,7 @@
       "active": true,
       "dependencies": [
         {
-          "port": "Security-Main",
+          "port": "SecuritySoftwares-Main",
           "name": "Linux-Pam",
           "version": ">=1.5.1",
           "options": []
