@@ -5,6 +5,12 @@
       "user":   "root",
       "group":  "root",
       "mode":   "0755"
+    },
+    {
+      "target": "/var/lib/sddm",
+      "user":   "sddm",
+      "group":  "sddm",
+      "mode":   "0755"
     }
   ]
 }

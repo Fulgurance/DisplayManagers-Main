@@ -5,6 +5,12 @@
       "user":   "root",
       "group":  "root",
       "mode":   "0755"
+    },
+    {
+      "target": "/usr/bin/startDM",
+      "user":   "root",
+      "group":  "root",
+      "mode":   "+x"
     }
   ]
 }

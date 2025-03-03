@@ -19,9 +19,6 @@ class Target < ISM::Software
 
         copyFile(   "#{buildDirectoryPath}/startDM",
                     "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/startDM")
-
-        runChmodCommand(arguments:  "+x startDM",
-                        path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin")
     end
 
 end

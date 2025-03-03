@@ -119,11 +119,4 @@ class Target < ISM::Software
         end
     end
 
-    def install
-        super
-
-        runChmodCommand("0755 /var/lib/sddm")
-        runChownCommand("-R sddm:sddm /var/lib/sddm")
-    end
-
 end
