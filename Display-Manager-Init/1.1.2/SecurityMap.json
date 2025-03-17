@@ -9,5 +9,12 @@
       "directoryMode":  "0755",
 
   },
-  "descriptors": []
+  "descriptors": [
+    {
+      "target": "/usr/bin/startDM",
+      "user":   "root",
+      "group":  "root",
+      "mode":   "+x"
+    }
+  ]
 }

@@ -9,5 +9,12 @@
       "directoryMode":  "0755",
 
   },
-  "descriptors": []
+  "descriptors": [
+    {
+      "target": "/var/lib/sddm",
+      "user":   "sddm",
+      "group":  "sddm",
+      "mode":   "0755"
+    }
+  ]
 }
