@@ -24,7 +24,9 @@ class Target < ISM::Software
     def deploy
         super
 
-        runRcUpdateCommand("add display-manager default")
+        if Ism.settings.autoDeployServices
+            runRcUpdateCommand("add display-manager default")
+        end
     end
 
 end
