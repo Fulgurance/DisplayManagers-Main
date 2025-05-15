@@ -21,4 +21,12 @@ class Target < ISM::Software
                     "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/startDM")
     end
 
+    def deploy
+        if autoDeployServices
+            if option("Openrc")
+                runRcUpdateCommand("add display-manager default")
+            end
+        end
+    end
+
 end
