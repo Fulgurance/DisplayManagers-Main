@@ -119,4 +119,10 @@ class Target < ISM::Software
         end
     end
 
+    def deploy
+        super
+
+        runChownCommand("sddm:sddm /var/lib/sddm")
+    end
+
 end

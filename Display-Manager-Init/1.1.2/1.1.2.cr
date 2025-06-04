@@ -22,6 +22,11 @@ class Target < ISM::Software
     end
 
     def deploy
+        super
+
+        runChownCommand("root:root /usr/bin/startDM")
+        runChmodCommand("+x /usr/bin/startDM")
+
         if autoDeployServices
             if option("Openrc")
                 runRcUpdateCommand("add display-manager default")
