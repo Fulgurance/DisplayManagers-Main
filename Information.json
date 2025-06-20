@@ -2,6 +2,5 @@
   "name": "DisplayManagers-Main",
   "url": "https://github.com/Fulgurance/DisplayManagers-Main",
   "publicKeyUrl": "http://www.slashlinux.io/keyring/Fulgurance.key",
-  "type": "Git",
   "description": "Port that contain all display manager softwares"
 }
