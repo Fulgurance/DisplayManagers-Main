@@ -28,9 +28,7 @@ class Target < ISM::Software
         runChmodCommand("+x /usr/bin/startDM")
 
         if autoDeployServices
-            if option("Openrc")
-                runRcUpdateCommand("add display-manager default")
-            end
+            runRcUpdateCommand("add display-manager default")
         end
     end
 
