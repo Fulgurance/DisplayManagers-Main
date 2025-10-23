@@ -1,0 +1,67 @@
+PORT
+    DisplayManagers-Main
+NAME
+    Sddm
+VERSION
+    0.21.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    QML based X11 and Wayland display manager
+WEBSITE
+    https://github.com/sddm/sddm
+DEPENDENCIES
+        @QtLibraries-Main:Qtdeclarative>=5.0.0
+        @SystemGroups-Main:Sddm>=0.1.0
+        @SystemUsers-Main:Sddm>=0.1.0
+        @XorgBase-Main:Xorg-Server>=21.1.14
+KERNELDEPENDENCIES
+OPTIONS
+    name: Linux-Pam
+    description: Enable linux-pam support
+    active: true
+    dependencies:
+        @SecuritySoftwares-Main:Linux-Pam>=1.5.1
+    kernelDependencies:
+
+    name: Systemd
+    description: Enable systemd support
+    active: false
+    dependencies:
+        @InitSystems-Main:Systemd>=249.0.0
+    kernelDependencies:
+
+    name: Elogind
+    description: Enable elogind support
+    active: true
+    dependencies:
+        @Utilities-Main:Elogind>=246.10.0
+    kernelDependencies:
+
+    name: Breeze
+    description: Enable breeze theme support
+    active: true
+    dependencies:
+    kernelDependencies:
+
+    name: Elarun
+    description: Enable elarun theme support
+    active: false
+    dependencies:
+    kernelDependencies:
+
+    name: Maldives
+    description: Enable maldives theme support
+    active: false
+    dependencies:
+    kernelDependencies:
+
+    name: Maya
+    description: Enable maya theme support
+    active: false
+    dependencies:
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

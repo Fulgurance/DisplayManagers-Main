@@ -1,0 +1,19 @@
+PORT
+    DisplayManagers-Main
+NAME
+    Display-Manager-Init
+VERSION
+    1.1.2
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    RC init files for starting display and login managers
+WEBSITE
+    https://packages.gentoo.org/packages/gui-libs/display-manager-init
+DEPENDENCIES
+        @InitSystems-Main:Openrc>=0.46.0
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES
