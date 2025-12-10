@@ -15,6 +15,7 @@ DEPENDENCIES
         @SystemGroups-Main:Sddm>=0.1.0
         @SystemUsers-Main:Sddm>=0.1.0
         @XorgBase-Main:Xorg-Server>=21.1.14
+        @QtLibraries-Main:Qttools>=6.0.0 ~ <7.0.0
 KERNELDEPENDENCIES
 OPTIONS
     name: Linux-Pam
